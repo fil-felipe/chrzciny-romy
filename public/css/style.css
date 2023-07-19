@@ -11,14 +11,15 @@ body {
 
 .card-title-class {
     font-family: 'Lugrasimo', cursive;
-    background-color: #FFCACC;
+    background-color: /*#FFCACC;*/ /*#DBC4F0;*/ #D4E2D4;
     font-size: larger;
 }
 
 #days-check {
-    font-family: 'Lobster', cursive;
+    /* font-family: 'Lobster', cursive; */
     font-size: xx-large;
-    color: red;
+    background-color: /*#FFCACC;*/ /*#DBC4F0;*/ #D4E2D4;
+    font-style: italic;
 }
 
 .card-box {
@@ -31,4 +32,9 @@ body {
 
 .button-class {
     margin: 1rem;
+    background-color: /*#FFCACC;*/ /*#DBC4F0;*/ #D4E2D4;
+}
+
+.phone-button-class {
+    background-color: /*#FFCACC;*/ /*#DBC4F0;*/ #D4E2D4;
 }

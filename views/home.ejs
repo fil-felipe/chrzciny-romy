@@ -29,7 +29,7 @@
           <div class="card-body">
             <h5 class="card-text">Dnia <b><%= new Intl.DateTimeFormat('pl-PL', { year: 'numeric', month: 'long', day: '2-digit'}).format(chrzcinyDate) %> roku</b></h5>
             <h5 class="card-text">O godzinie <b>12:00</b></h5>
-            <h5 class="card-title" id="days-check">To już za <%= DifferenceInDays%> dni!</h5>
+            <button type="button" class="btn btn-light" id="days-check">To już za <%= DifferenceInDays%> dni!</button>
           </div>
         </div>
         <div class="card card-box">
@@ -41,7 +41,7 @@
               <h5 class="card-text">Sanktuarium Matki Bożej Fatimskiej w Warszawie.</h5>
               <p class="card-title">Adres:</p>
               <h5 class="card-text">ul. Zagłoby 37, 02-495 Warszawa.</h5>
-              <a href="https://www.google.com/maps/dir//Sanktuarium+Matki+Bo%C5%BCej+Fatimskiej+w+Warszawie,+Zag%C5%82oby+37,+02-495+Warszawa/@52.1921577,20.8620758,17z/data=!4m9!4m8!1m0!1m5!1m1!1s0x4719351bc687fa89:0xe958072f7c069b6f!2m2!1d20.8620758!2d52.1921577!3e0?entry=ttu" class="btn btn-primary button-class">Pokaż trasę</a>
+              <a href="https://www.google.com/maps/dir//Sanktuarium+Matki+Bo%C5%BCej+Fatimskiej+w+Warszawie,+Zag%C5%82oby+37,+02-495+Warszawa/@52.1921577,20.8620758,17z/data=!4m9!4m8!1m0!1m5!1m1!1s0x4719351bc687fa89:0xe958072f7c069b6f!2m2!1d20.8620758!2d52.1921577!3e0?entry=ttu" class="btn btn-light button-class">Pokaż trasę</a>
               <div id="kosciol-map" class="map-google"></div>
             </div>
         </div>
@@ -54,8 +54,8 @@
             <h5 class="card-text">Karczma Dwa Bażanty.</h5>
             <p class="card-title">Adres:</p>
             <h5 class="card-text">aleja Tysiąclecia 2c, 05-820 Piastów.</h5>
-            <a href="https://www.google.com/maps/dir//Karczma+Dwa+Ba%C5%BCanty,+aleja+Tysi%C4%85clecia+2c,+05-820+Piast%C3%B3w/@52.1795977,20.8408279,17z/data=!4m9!4m8!1m0!1m5!1m1!1s0x471935a77351d8eb:0xd89cd9405241947e!2m2!1d20.8409046!2d52.1795812!3e0?entry=ttu" class="btn btn-primary button-class">Pokaż trasę</a>
-            <a href="https://www.google.com/maps/dir/Sanktuarium+Matki+Bo%C5%BCej+Fatimskiej+w+Warszawie,+Zag%C5%82oby,+Warsaw/Karczma+Dwa+Ba%C5%BCanty,+aleja+Tysi%C4%85clecia+2c,+05-820+Piast%C3%B3w/@52.1865737,20.840612,15z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x4719351bc687fa89:0xe958072f7c069b6f!2m2!1d20.8620758!2d52.1921577!1m5!1m1!1s0x471935a77351d8eb:0xd89cd9405241947e!2m2!1d20.8409046!2d52.1795812!3e0?entry=ttu" class="btn btn-primary button-class">Pokaż trasę od kościoła</a>
+            <a href="https://www.google.com/maps/dir//Karczma+Dwa+Ba%C5%BCanty,+aleja+Tysi%C4%85clecia+2c,+05-820+Piast%C3%B3w/@52.1795977,20.8408279,17z/data=!4m9!4m8!1m0!1m5!1m1!1s0x471935a77351d8eb:0xd89cd9405241947e!2m2!1d20.8409046!2d52.1795812!3e0?entry=ttu" class="btn btn-light button-class">Pokaż trasę</a>
+            <a href="https://www.google.com/maps/dir/Sanktuarium+Matki+Bo%C5%BCej+Fatimskiej+w+Warszawie,+Zag%C5%82oby,+Warsaw/Karczma+Dwa+Ba%C5%BCanty,+aleja+Tysi%C4%85clecia+2c,+05-820+Piast%C3%B3w/@52.1865737,20.840612,15z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x4719351bc687fa89:0xe958072f7c069b6f!2m2!1d20.8620758!2d52.1921577!1m5!1m1!1s0x471935a77351d8eb:0xd89cd9405241947e!2m2!1d20.8409046!2d52.1795812!3e0?entry=ttu" class="btn btn-light button-class">Pokaż trasę od kościoła</a>
             <div id="restauracja-map" class="map-google"></div>
           </div>
       </div>
@@ -66,12 +66,12 @@
         <div class="card-body">
           <h5 class="card-title">Kasia telefon:</h5>
           <p class="card-text" id="kasia-tel">+48 504 245 894</p>
-          <button class="btn btn-primary" onClick="copyToClipboard('kasia-tel')">Skopiuj do schowka</a>
+          <button class="btn btn-light phone-button-class" onClick="copyToClipboard('kasia-tel')">Skopiuj do schowka</button>
         </div>
         <div class="card-body">
           <h5 class="card-title">Filip telefon:</h5>
           <p class="card-text" id="filip-tel">+48 512 737 700</p>
-          <button class="btn btn-primary" onClick="copyToClipboard('filip-tel')">Skopiuj do schowka</a>
+          <button class="btn btn-light phone-button-class" onClick="copyToClipboard('filip-tel')">Skopiuj do schowka</button>
         </div>
     </div>
     
