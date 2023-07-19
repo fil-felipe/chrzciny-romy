@@ -12,7 +12,7 @@
       <!-- Google Fonts -->
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lugrasimo&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lobster&family=Lugrasimo&display=swap" rel="stylesheet">
       
       <!-- CSS Stylesheets -->
       <link href="/css/style.css" rel="stylesheet" type="text/css">
@@ -27,9 +27,9 @@
             Chrzciny odbedą się:
           </div>
           <div class="card-body">
-            <h5 class="card-text">Dnia <%= new Intl.DateTimeFormat('pl-PL', { year: 'numeric', month: 'long', day: '2-digit'}).format(chrzcinyDate) %></h5>
-            <h5 class="card-text">O godzinie 12:00</h5>
-            <h5 class="card-title"><strong>To już za <%= DifferenceInDays%> dni!</strong></h5>
+            <h5 class="card-text">Dnia <b><%= new Intl.DateTimeFormat('pl-PL', { year: 'numeric', month: 'long', day: '2-digit'}).format(chrzcinyDate) %> roku</b></h5>
+            <h5 class="card-text">O godzinie <b>12:00</b></h5>
+            <h5 class="card-title" id="days-check">To już za <%= DifferenceInDays%> dni!</h5>
           </div>
         </div>
         <div class="card card-box">
@@ -129,12 +129,6 @@
       };
 
       function copyToClipboard(textId) {
-        // copiedText = "48512737700"
-        // Copy the text inside the text field
-        // navigator.clipboard.writeText(copiedText);
-
-        // Alert the copied text  
-        // alert("Copied the text: " + copiedText);
           // Get the desired text to copy
         var selectText = document.getElementById(textId).textContent;
         // Create an input
