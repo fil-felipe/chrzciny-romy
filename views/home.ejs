@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Chrzciny Romy</title>
+
+      <!-- Bootstrap Scripts -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+      <!-- Google Fonts -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lugrasimo&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+      
+      <!-- CSS Stylesheets -->
+      <link href="/css/style.css" rel="stylesheet" type="text/css">
+
+    </head>
+    <body>
+        <div class="title">
+          <h1 class="title">Zapraszamy na Chrzciny Romy</h1>
+        </div> 
+        <div class="card card-box">
+          <div class="card-header card-title-class">
+            Chrzciny odbedą się:
+          </div>
+          <div class="card-body">
+            <h5 class="card-text">Dnia <%= new Intl.DateTimeFormat('pl-PL', { year: 'numeric', month: 'long', day: '2-digit'}).format(chrzcinyDate) %></h5>
+            <h5 class="card-text">O godzinie 12:00</h5>
+            <h5 class="card-title"><strong>To już za <%= DifferenceInDays%> dni!</strong></h5>
+          </div>
+        </div>
+        <div class="card card-box">
+            <div class="card-header card-title-class">
+              Sakrament chrztu
+            </div>
+            <div class="card-body">
+              <p class="card-title">Msza Święta odbędzie się w kościele:</p>
+              <h5 class="card-text">Sanktuarium Matki Bożej Fatimskiej w Warszawie.</h5>
+              <p class="card-title">Adres:</p>
+              <h5 class="card-text">ul. Zagłoby 37, 02-495 Warszawa.</h5>
+              <a href="https://www.google.com/maps/dir//Sanktuarium+Matki+Bo%C5%BCej+Fatimskiej+w+Warszawie,+Zag%C5%82oby+37,+02-495+Warszawa/@52.1921577,20.8620758,17z/data=!4m9!4m8!1m0!1m5!1m1!1s0x4719351bc687fa89:0xe958072f7c069b6f!2m2!1d20.8620758!2d52.1921577!3e0?entry=ttu" class="btn btn-primary button-class">Pokaż trasę</a>
+              <div id="kosciol-map" class="map-google"></div>
+            </div>
+        </div>
+        <div class="card card-box">
+          <div class="card-header card-title-class">
+            Przyjęcie chrzcielne
+          </div>
+          <div class="card-body">
+            <p class="card-title">Po mszy zapraszamy na świętowanie do restauracji:</p>
+            <h5 class="card-text">Karczma Dwa Bażanty.</h5>
+            <p class="card-title">Adres:</p>
+            <h5 class="card-text">aleja Tysiąclecia 2c, 05-820 Piastów.</h5>
+            <a href="https://www.google.com/maps/dir//Karczma+Dwa+Ba%C5%BCanty,+aleja+Tysi%C4%85clecia+2c,+05-820+Piast%C3%B3w/@52.1795977,20.8408279,17z/data=!4m9!4m8!1m0!1m5!1m1!1s0x471935a77351d8eb:0xd89cd9405241947e!2m2!1d20.8409046!2d52.1795812!3e0?entry=ttu" class="btn btn-primary button-class">Pokaż trasę</a>
+            <a href="https://www.google.com/maps/dir/Sanktuarium+Matki+Bo%C5%BCej+Fatimskiej+w+Warszawie,+Zag%C5%82oby,+Warsaw/Karczma+Dwa+Ba%C5%BCanty,+aleja+Tysi%C4%85clecia+2c,+05-820+Piast%C3%B3w/@52.1865737,20.840612,15z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x4719351bc687fa89:0xe958072f7c069b6f!2m2!1d20.8620758!2d52.1921577!1m5!1m1!1s0x471935a77351d8eb:0xd89cd9405241947e!2m2!1d20.8409046!2d52.1795812!3e0?entry=ttu" class="btn btn-primary button-class">Pokaż trasę od kościoła</a>
+            <div id="restauracja-map" class="map-google"></div>
+          </div>
+      </div>
+      <div class="card card-box">
+        <div class="card-header card-title-class">
+          Kontakt do rodziców
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Kasia telefon:</h5>
+          <p class="card-text" id="kasia-tel">+48 504 245 894</p>
+          <button class="btn btn-primary" onClick="copyToClipboard('kasia-tel')">Skopiuj do schowka</a>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Filip telefon:</h5>
+          <p class="card-text" id="filip-tel">+48 512 737 700</p>
+          <button class="btn btn-primary" onClick="copyToClipboard('filip-tel')">Skopiuj do schowka</a>
+        </div>
+    </div>
+    
+    <script>
+      function generateMap(divId, latInt, lngInt, placeIdStr) {
+        const map = new google.maps.Map(document.getElementById(divId), {
+          center: { lat:latInt, lng: lngInt},
+          zoom: 15,
+        });
+        const request = {
+          placeId: placeIdStr,
+          fields: ["name", "formatted_address", "geometry", "url"],
+        };
+        const infowindow = new google.maps.InfoWindow();
+        const service = new google.maps.places.PlacesService(map);
+
+        service.getDetails(request, (place, status) => {
+          if (
+            status === google.maps.places.PlacesServiceStatus.OK &&
+            place &&
+            place.geometry &&
+            place.geometry.location
+          ) {
+            const marker = new google.maps.Marker({
+              map,
+              position: place.geometry.location,
+            });
+
+            google.maps.event.addListener(marker, "click", () => {
+              const content = document.createElement("div");
+
+              const nameElement = document.createElement("h5");
+              nameElement.textContent = place.name;
+              content.appendChild(nameElement);
+
+              const placeAddressElement = document.createElement("p");
+              placeAddressElement.textContent = place.formatted_address;
+              content.appendChild(placeAddressElement);
+
+              const placeUrlElement = document.createElement("a");
+              placeUrlElement.href = place.url
+              placeUrlElement.textContent = "Zobacz w Mapach Google"
+              content.appendChild(placeUrlElement);
+
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+            });
+          }
+        });
+      };
+      
+      function mapInit() {
+        generateMap("kosciol-map", 52.1921577, 20.8620758, "ChIJifqHxhs1GUcRb5sGfC8HWOk"); //{ lat:52.1921577, lng: 20.8620758},
+        generateMap("restauracja-map", 52.1795977, 20.8408279, "ChIJ69hRc6c1GUcRfpRBUkDZnNg");
+      };
+
+      function copyToClipboard(textId) {
+        // copiedText = "48512737700"
+        // Copy the text inside the text field
+        // navigator.clipboard.writeText(copiedText);
+
+        // Alert the copied text  
+        // alert("Copied the text: " + copiedText);
+          // Get the desired text to copy
+        var selectText = document.getElementById(textId).textContent;
+        // Create an input
+        var input = document.createElement('input');
+        // Set it's value to the text to copy, the input type doesn't matter
+        input.value = selectText;
+        // add it to the document
+        document.body.appendChild(input);
+        // call select(); on input which performs a user like selection  
+        input.select();
+        // execute the copy command, this is why we add the input to the document
+        document.execCommand("copy");
+        // remove the input from the document
+        document.body.removeChild(input);
+      };
+    </script>
+    <script async defer src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBq9WaO_mdbHbIwCIzwWcgCl2o9cXQUPwU&callback=mapInit&libraries=places&v=weekly"></script>
+    </body>
+</html>

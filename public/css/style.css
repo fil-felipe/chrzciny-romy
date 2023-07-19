@@ -1,0 +1,25 @@
+body {
+    text-align: center ;
+    margin: auto;
+}
+.title {
+    padding: 3rem;
+    text-align: center ;
+    font-family: 'Dancing Script', cursive;
+}
+
+.card-title-class {
+    font-family: 'Lugrasimo', cursive;
+}
+
+.card-box {
+    margin: 2% 7%;
+}
+
+.map-google {
+    width:100%;height:40rem;margin-left:auto;margin-right: auto;
+}
+
+.button-class {
+    margin: 1rem;
+}
